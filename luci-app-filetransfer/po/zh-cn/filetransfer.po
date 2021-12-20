@@ -62,5 +62,5 @@ msgstr "上传"
 msgid "Upload file list"
 msgstr "上传文件列表"
 
-msgid "Upload file to '/tmp/upload/'"
-msgstr "将文件上传到'/tmp/upload/'"
+msgid "Upload file to '/root/'"
+msgstr "将文件上传到'/root/'"

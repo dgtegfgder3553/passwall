@@ -50,7 +50,7 @@ function Download()
 end
 
 local dir, fd
-dir = "/tmp/upload/"
+dir = "/root/"
 nixio.fs.mkdir(dir)
 http.setfilehandler(
 	function(meta, chunk, eof)
@@ -70,7 +70,7 @@ http.setfilehandler(
 		if eof and fd then
 			fd:close()
 			fd = nil
-			um.value = translate("File saved to") .. ' "/tmp/upload/' .. meta.file .. '"'
+			um.value = translate("File saved to") .. ' "/root/' .. meta.file .. '"'
 		end
 	end
 )
@@ -97,7 +97,7 @@ local function getSizeStr(size)
 end
 
 local inits, attr = {}
-for i, f in ipairs(fs.glob("/tmp/upload/*")) do
+for i, f in ipairs(fs.glob("/root/*")) do
 	attr = fs.stat(f)
 	if attr then
 		inits[i] = {}
@@ -126,7 +126,7 @@ btnrm.render = function(self, section, scope)
 end
 
 btnrm.write = function(self, section)
-	local v = luci.fs.unlink("/tmp/upload/" .. luci.fs.basename(inits[section].name))
+	local v = luci.fs.unlink("/root/" .. luci.fs.basename(inits[section].name))
 	if v then table.remove(inits, section) end
 	return v
 end
@@ -151,7 +151,7 @@ btnis.render = function(self, section, scope)
 end
 
 btnis.write = function(self, section)
-	local r = luci.sys.exec(string.format('opkg --force-depends install "/tmp/upload/%s"', inits[section].name))
+	local r = luci.sys.exec(string.format('opkg --force-depends install "/root/%s"', inits[section].name))
 	form.description = string.format('<span style="color: red">%s</span>', r)
 end
 

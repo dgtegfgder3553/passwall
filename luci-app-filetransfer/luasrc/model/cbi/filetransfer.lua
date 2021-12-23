@@ -5,7 +5,7 @@ ful = SimpleForm("upload", translate("Upload"), nil)
 ful.reset = false
 ful.submit = false
 
-sul = ful:section(SimpleSection, "", translate("Upload file to '/tmp/upload/'"))
+sul = ful:section(SimpleSection, "", translate("Upload file to '/root/'"))
 fu = sul:option(FileUpload, "")
 fu.template = "filetransfer/other_upload"
 um = sul:option(DummyValue, "", nil)

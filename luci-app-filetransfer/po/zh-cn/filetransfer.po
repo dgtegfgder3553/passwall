@@ -32,7 +32,7 @@ msgstr "文件名"
 msgid "File saved to"
 msgstr "文件保存到"
 
-msgid "FileTransfer"
+msgid "文件传输"
 msgstr "文件传输"
 
 msgid "Install"
